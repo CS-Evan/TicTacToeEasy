@@ -8,6 +8,7 @@ namespace LogicClasses
         static public bool gameWin = false;
         static public bool stop = false;
         static public bool playerWins = false;
+        static public int check = 0;
 
         // Checks if player wins
         static public void PlayerWinCheck()
@@ -150,7 +151,7 @@ namespace LogicClasses
                     stop = true;
                     Console.ReadKey();
                 }
-                else if (Program.check >= 9 && AiLogic.aiDraw == false)
+                else if (check >= 9 && AiLogic.aiDraw == false)
                 {
 
                     Console.WriteLine("\nGame is a DRAW");

@@ -97,7 +97,7 @@ namespace LogicClasses
 
                 if (WinLogic.gameWin == false)
                 {
-                    Program.check++;
+                    WinLogic.check++;
                     AiLogic.PC();
                 }
                 else
@@ -106,7 +106,6 @@ namespace LogicClasses
                 }
             }
         }
-
 
     }
 }

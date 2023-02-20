@@ -14,7 +14,7 @@ namespace LogicClasses
         {
             Random r = new Random();
             bool pcRepeat = true;
-            if (Program.check >= 9)
+            if (WinLogic.check >= 9)
             {
                 aiDraw = true;
                 Console.WriteLine("Game is a DRAW");
@@ -165,7 +165,7 @@ namespace LogicClasses
                     
                 } while (pcRepeat == true && WinLogic.stop == false);
                 counter_ = 3;
-                Program.check++;
+                WinLogic.check++;
                 GameBoard.Board();
                 WinLogic.PCWINCheck();
 

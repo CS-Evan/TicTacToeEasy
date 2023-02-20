@@ -1,15 +1,9 @@
 ﻿
 using LogicClasses;
-using System.Linq;
 namespace TicTacToeEasy;
 
 class Program
 {
-    static public int check = 0;
-    
-    static public bool continueGame = false;
-    static public bool gameWin = false;
-
     static void Main(string[] args)
     {
         Random r = new Random();
@@ -20,7 +14,7 @@ class Program
         Console.WriteLine("*         VERSION 1.00         *");
         Console.WriteLine("********************************");
         Console.WriteLine();
-        Console.WriteLine("The AI is very simple. If the program won't progress, type STUCK to force a draw.\n");
+        Console.WriteLine("The AI is very simple. If the game won't progress, type STUCK to force the game to close.\n");
 
         // CoinFlip to see who goes first
         int coinFlip = r.Next(1, 3);
