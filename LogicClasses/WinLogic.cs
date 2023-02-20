@@ -154,6 +154,7 @@ namespace LogicClasses
                 {
 
                     Console.WriteLine("\nGame is a DRAW");
+                    Console.WriteLine("\nThanks for playing! Press Enter to Quit.");
                     stop = true;
                     Console.ReadKey();
 

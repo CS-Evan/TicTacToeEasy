@@ -18,7 +18,7 @@ namespace LogicClasses
             {
                 aiDraw = true;
                 Console.WriteLine("Game is a DRAW");
-                Console.WriteLine("Thanks for playing!");
+                Console.WriteLine("Thanks for playing! Press ENTER to quit.");
                 WinLogic.stop = true;
                 Console.ReadKey();
             }
@@ -35,11 +35,41 @@ namespace LogicClasses
                     int rng = r.Next(1, 3);
                     
                     if (rng == 1 && GameBoard.matrix[1, 1] != "X" && GameBoard.matrix[1, 1] != "O")
+                    {                      
+                        Waiting();
+                        GameBoard.matrix[1, 1] = "O";
+                        pcRepeat = false;                        
+                    }
+                    // Battles
+                    else if (GameBoard.matrix[0, 0] == "X" && GameBoard.matrix[0, 1] == "X" && GameBoard.matrix[0, 2] != "X" && GameBoard.matrix[0, 2] != "O")
                     {
-                       
-                            Waiting();
-                            GameBoard.matrix[1, 1] = "O";
-                            pcRepeat = false;                        
+                        Waiting();
+                        GameBoard.matrix[0, 2] = "O";
+                        pcRepeat = false;
+                    }
+                    else if (rng == 2 && GameBoard.matrix[0, 0] == "X" && GameBoard.matrix[0, 2] == "X" && GameBoard.matrix[0, 1] != "X" && GameBoard.matrix[0, 1] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[0, 1] = "O";
+                        pcRepeat = false;
+                    }
+                    else if (GameBoard.matrix[0, 0] == "X" && GameBoard.matrix[1, 0] == "X" && GameBoard.matrix[2, 0] != "X" && GameBoard.matrix[2,0] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[2,0] = "O";
+                        pcRepeat = false;
+                    }
+                    else if (rng == 2 && GameBoard.matrix[1,0] == "X" && GameBoard.matrix[2, 0] == "X" && GameBoard.matrix[0, 0] != "X" && GameBoard.matrix[0, 0] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[0, 0] = "O";
+                        pcRepeat = false;
+                    }
+                    else if (rng == 1 && GameBoard.matrix[0, 0] == "X" && GameBoard.matrix[2, 0] == "X" && GameBoard.matrix[1, 0] != "X" && GameBoard.matrix[1, 0] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[1, 0] = "O";
+                        pcRepeat = false;
                     }
                     //Top left to Bottom Right
                     else if (GameBoard.matrix[0,0] == "O" && GameBoard.matrix[1,1] == "O" && GameBoard.matrix[2, 2] != "X" && GameBoard.matrix[2, 2] != "O") {
@@ -78,6 +108,26 @@ namespace LogicClasses
                         GameBoard.matrix[2,0] = "O";
                         pcRepeat = false;
                     }
+                    //Bottom vertical win
+                    else if (GameBoard.matrix[2, 0] == "O" && GameBoard.matrix[2, 1] == "O" && GameBoard.matrix[2, 2] != "X" && GameBoard.matrix[2, 2] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[2, 2] = "O";
+                        pcRepeat = false;
+                    }
+                    else if (GameBoard.matrix[2, 1] == "O" && GameBoard.matrix[2, 2] == "O" && GameBoard.matrix[2, 0] != "X" && GameBoard.matrix[2, 0] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[2, 0] = "O";
+                        pcRepeat = false;
+                    }
+                    else if (GameBoard.matrix[2, 0] == "O" && GameBoard.matrix[2, 2] == "O" && GameBoard.matrix[2, 1] != "X" && GameBoard.matrix[2, 1] != "O")
+                    {
+                        Waiting();
+                        GameBoard.matrix[2, 1] = "O";
+                        pcRepeat = false;
+                    }
+
                     // If non of the above, random place
                     else if (GameBoard.matrix[num1, num2] != "X" && GameBoard.matrix[num1, num2] != "O")
                     {
@@ -111,11 +161,14 @@ namespace LogicClasses
                         }
                         
                     }
-                    WinLogic.PCWINCheck();
+                    
+                    
                 } while (pcRepeat == true && WinLogic.stop == false);
                 counter_ = 3;
                 Program.check++;
                 GameBoard.Board();
+                WinLogic.PCWINCheck();
+
             }
 
         }

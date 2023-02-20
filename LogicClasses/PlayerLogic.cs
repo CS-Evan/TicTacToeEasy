@@ -19,7 +19,7 @@ namespace LogicClasses
 
             GameBoard gboard = new GameBoard();
             Program p = new Program();
-
+            
             // Logic for player actions
             if (WinLogic.gameWin == false)
             {
