@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToeEasy;
 
-namespace TicTacToeEasy
+namespace LogicClasses
 {
     public class AiLogic
     {
@@ -26,10 +27,10 @@ namespace TicTacToeEasy
                 Console.WriteLine("\nComputer is playing\n");
                 Thread.Sleep(1000);
                 do
-                {                   
+                {
                     // Does random num check to figure out where to go.
                     int num1 = r.Next(0, 3);
-                    int num2 = r.Next(0, 3);                   
+                    int num2 = r.Next(0, 3);
                     if (GameBoard.matrix[1, 1] != "X" && GameBoard.matrix[1, 1] != "O")
                     {
                         GameBoard.matrix[1, 1] = "O";
@@ -43,7 +44,7 @@ namespace TicTacToeEasy
                     }
                     else
                     {
-                        Console.Write("Computer is thinking");                      
+                        Console.Write("Computer is thinking");
                         Thread.Sleep(200);
                         Console.Write(".");
                         Thread.Sleep(200);
@@ -54,9 +55,9 @@ namespace TicTacToeEasy
                         Console.WriteLine("\n");
                         num1 = r.Next(0, 2);
                         num2 = r.Next(0, 2);
-                    }                   
+                    }
                     WinLogic.PCWINCheck();
-                } while (pcRepeat == true && WinLogic.stop == false);               
+                } while (pcRepeat == true && WinLogic.stop == false);
                 Program.check++;
                 GameBoard.Board();
             }

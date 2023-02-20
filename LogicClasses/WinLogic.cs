@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TicTacToeEasy;
 
-namespace TicTacToeEasy
+namespace LogicClasses
 {
-    
 
     public class WinLogic
     {
@@ -17,7 +12,7 @@ namespace TicTacToeEasy
         // Checks if player wins
         static public void PlayerWinCheck()
         {
-            
+
             // Top Row
             if (GameBoard.matrix[0, 0] == "X" && GameBoard.matrix[0, 1] == "X" && GameBoard.matrix[0, 2] == "X")
             {
@@ -135,8 +130,6 @@ namespace TicTacToeEasy
             {
 
             }
-
-            
         }
         public static void Draw()
         {
@@ -151,11 +144,11 @@ namespace TicTacToeEasy
                 }
                 else if (Program.check >= 9 && AiLogic.aiDraw == false)
                 {
-                   
+
                     Console.WriteLine("\nGame is a DRAW");
                     stop = true;
                     Console.ReadKey();
-                    
+
                 }
             } while (stop == false);
         }

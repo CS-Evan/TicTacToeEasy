@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿
+using LogicClasses;
+using System.Linq;
 namespace TicTacToeEasy;
 
 class Program
@@ -34,7 +36,6 @@ class Program
         else
         {
             Console.WriteLine("As the coin flip was 2, the computer will go first!\n");
-            check = 1;
             Thread.Sleep(2000);
             AiLogic.PC();
         }
